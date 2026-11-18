@@ -194,7 +194,7 @@ body > main {
 }
 #campus-stores .shell {
   display: grid;
-  grid-template-columns: 155px minmax(0, 1fr);
+  grid-template-columns: 172px minmax(0, 1fr);
   min-height: 315px;
 }
 #campus-stores nav {
@@ -323,7 +323,176 @@ body > main {
   font-size: 12px;
   background: transparent;
 }
+#campus-stores {
+  --warn: light-dark(#fbe6dd, #4a2c22);
+  --warntxt: light-dark(#8a3315, #f6c0a8);
+}
+#campus-stores .warn {
+  background: var(--warn);
+  color: var(--warntxt);
+  font-weight: 600;
+}
+#campus-stores .rowend {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+#campus-stores .row small.log {
+  margin-top: 2px;
+  font-style: italic;
+}
+#campus-stores .subhead {
+  margin: 18px 0 6px;
+}
+#campus-stores .panel {
+  margin: 14px 0;
+  padding: 13px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--desk);
+  display: grid;
+  gap: 8px;
+}
+#campus-stores .panel > .row:first-of-type {
+  border-top: 0;
+}
+#campus-stores .panel .form,
+#campus-stores .panel .buttons {
+  margin: 2px 0 0;
+}
+#campus-stores .warnpanel {
+  background: var(--warn);
+  color: var(--warntxt);
+  border-color: transparent;
+}
+#campus-stores .warnpanel button {
+  justify-self: start;
+}
+#campus-stores .hint {
+  color: var(--quiet);
+  font-size: 13px;
+}
+#campus-stores .error {
+  color: var(--warntxt);
+  background: var(--warn);
+  padding: 7px 10px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+#campus-stores .lines {
+  display: grid;
+  gap: 6px;
+}
+#campus-stores .line {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  align-items: center;
+  gap: 4px 10px;
+  padding: 8px 10px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+}
+#campus-stores .line small {
+  grid-column: 1/-1;
+}
+#campus-stores .check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+#campus-stores input[type="checkbox"],
+#campus-stores input[type="radio"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: var(--sel);
+}
+#campus-stores fieldset.unit {
+  margin: 0;
+  padding: 9px 11px 11px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--paper);
+}
+#campus-stores fieldset.unit legend {
+  padding: 0 4px;
+}
+#campus-stores .choice {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 18px;
+  margin-top: 4px;
+}
+#campus-stores .choice label {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 600;
+  cursor: pointer;
+}
+#campus-stores .stillout {
+  display: none;
+}
+#campus-stores fieldset.unit:has(input[value="out"]:checked) .stillout {
+  display: grid;
+}
+#campus-stores .lookup {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+#campus-stores .lookup label {
+  flex: 1 1 220px;
+  font-size: 13px;
+  font-weight: 600;
+}
+#campus-stores .lookup label span {
+  margin-bottom: 3px;
+}
+#campus-stores .lookup input {
+  width: 100%;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+#campus-stores nav button > span:first-of-type {
+  flex: 1;
+}
+#campus-stores .count {
+  font-size: 11px;
+  font-weight: 700;
+  min-width: 20px;
+  padding: 1px 6px;
+  border-radius: 10px;
+  text-align: center;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+}
+#campus-stores .count.late {
+  background: var(--warn);
+  color: var(--warntxt);
+  border-color: transparent;
+}
+#campus-stores .sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+#campus-stores .record.auto {
+  border-left-color: var(--mark);
+}
 @container (max-width:650px) {
+  #campus-stores .line {
+    grid-template-columns: minmax(0, 1fr);
+  }
   #campus-stores .shell {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -361,6 +530,10 @@ body > main {
   }
   #campus-stores .row {
     gap: 5px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #campus-stores .rowend {
+    justify-content: flex-start;
   }
 }
 @media (pointer: coarse) {
